@@ -16,6 +16,14 @@ const AppRouter = () => {
         <Route path="/dashboard" element={<PrivateRouter />}>
           <Route path="" element={<Home />} />
           <Route path="/dashboard/products" element={<Products />} />
+          {/* //- iki noktadan sonra bir değişken gelir. Bu değişken useParams ile yakalanır.
+              //- dinamik değişken parametreler neyden sonra gelir soru işaretinden sonra gelir. backenddeki arama isteğimiz aslında ? işaretinden sonra gelen kısım. 
+
+              //- 39 useLocation ilgili parametreler sorgular vs. bizim yakalamamızı sağlar.
+              //- useNavigate hookunun bir diğer özelliği de nedir giderken yanında bir yükte taşıyabilir. Şu sayfaya git şu yükü de götür diyebiliyoruz.
+
+              //* 40 şimdi apilerle iletişim kuralım products sayfasına ışınlanalım
+          */}
           <Route path="products/:title" element={<ProductDetail />} />
           <Route path="about" element={<About />} />
         </Route>

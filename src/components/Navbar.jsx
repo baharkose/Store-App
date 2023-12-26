@@ -30,6 +30,15 @@ const Navbar = () => {
 
   //- 26 tükecek kişi siparişi verdi. autcontexteki logoutu al. Şimdi geldik logouta aşağıdaki.
   const { logout } = useContext(AuthContext);
+
+//* 35 NESTED ROUTE'LARDA NAVLINK YONTEMİ SAĞLIKLI çalışmaz. Burda devreye useLocation hooku girer. şimdi de gelelim navbarı düzeltmeye navlinkin active özelliği nested routelarda sağlıklı çalışmıyor. home pathinde bulunan dashboard products ve aboutta da aktif olduğu için hem homeun hem de tıklanılan nested element atif clasından etkilenir. Şimdi navbara ışınlanalım.
+
+//-36 öncelikle useLocation hookumuzu router domdan çağırdık. bu bize clg ile baktığımızda hash, key, pathname, search ve state gibi bazı değerler verir. Bize path namei verdi. Urlden bilgileri almak için search ya da pat içerisinden yakalayabiliyoruz.
+
+//- 37 bu bilgiler bizim navigation objemizin içerisinde var. aktif linkte useLocationdan geliyor o zaman biz ne yapabiliriz bunları kıyaslayabiliriz. Navlinkin içine geldik.
+
+
+
   const location = useLocation();
   console.log(location);
 
@@ -90,6 +99,7 @@ const Navbar = () => {
                 <NavLink
                   to={item.path}
                   className={`block hover:bg-main rounded-full py-2 px-4 hover:text-white ${
+                    // - 38 locationdan gelen pathname ile itemdan gelen path namei kıyasla. Dolar süslü ile yaptık bunu. aktif link hangisi ile onu location ile bulabildik. --> approuterdayız -->
                     location.pathname === item.path ? "underline scale-150" : ""
                   }`}
                 >
