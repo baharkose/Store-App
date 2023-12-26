@@ -105,7 +105,10 @@ const Navbar = () => {
               className="flex items-center justify-center gap-x-1 py-2 px-4 font-medium text-gray-700 hover:bg-main hover:text-white active:bg-gray-900 rounded-full md:inline-flex"
             >
 
-              {/* //- 21 şimdi logout kısmını biçimmlnedirelim, anasyafaya yönlediriyo ama kullanıcı geri geldiğinde manuel olarak  giriş yapabilir ya da geri gelebilir. o yüzden logouta basıldığında işimizi sağlama almak için statetimizi boşaltalım. 
+              {/*
+              //! / işareti bu senaryoda logine gider.
+
+              //- 21 şimdi logout kısmını biçimmlnedirelim, anasyafaya yönlediriyo ama kullanıcı geri geldiğinde manuel olarak  giriş yapabilir ya da geri gelebilir. o yüzden logouta basıldığında işimizi sağlama almak için statetimizi boşaltalım. 
 
               // - 22 private routerda koşul olarak verdiğimiz useStateni boşaltalım. . Kullanıcı logout yaptığında tekrar geri gelemesin dönemesin. O yüzden ne yapıyoruz contexe gidip logout fonksiyonumuzu oluşturuyoruz. -> authprovidera --->
               */}
@@ -113,6 +116,8 @@ const Navbar = () => {
 
               {/* //-27 navlink zaten bizi logine yönlediriyo o nednele tekrar yazmaya ihtyacımız kalmadı
               //- 28 ne yapıyoruz navlinkin onClickine loguoutu veriyoruz. Artık şimdi ne yapıcak hem logout yapıcak logine yönlendiricek hemde onClick olduğunda içerik boşlamtılmış olucak.
+
+              //- 29 sayfayı yenilediğimizde stateler inital değerine döndüğü için user bilgileri boşalmış oldu şimdi bunu çok basit bi şekilde çözelim. oO yüzden authprovider a ışınlanalım.
               */}
             </NavLink>
           </div>

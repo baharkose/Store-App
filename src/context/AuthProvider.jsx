@@ -10,8 +10,10 @@ const AuthProvider = ({ children }) => {
   //-3 babaanne ne yapıyo havuza parayı atıyo diğerleri de ne yapıyo havuzdan direk veriyi çekiyor.
 
   const [user, setUser] = useState(
-    JSON.parse(sessionStorage.getItem("user")) || null
+    JSON.parse(sessionStorage.getItem("user")) || null 
   );
+//-33 setUserın başlangıç değerini localdeki user yap yoksa null yap.
+
   const navigate = useNavigate();
 
   //-11 oda gelen bilgileri aldı ve bizim userStatetimizi doldurdu. VE kullanıcıyı içeri aldı.
@@ -33,9 +35,16 @@ const AuthProvider = ({ children }) => {
     // setUser({})
   };
 
+
+  //- 30 çok basit bi şekilde sayfa yüklendiğinde login ekranı tekrar açılmasını engellemek için --> useEffect içerisine sessionStorage kullabiliriz.
+
+  //!31 session tarayıcı kapandığında local ne zaman silerseniz. lifecycylelar mülakatlarda banko çıkar. bunlar ve useEffect ile birlikte kullanımları
+
   useEffect(() => {
     sessionStorage.setItem("user", JSON.stringify(user));
   }, [user]); //!componentDidUpdate
+
+  //- 32 userı takip et dolduğunda, boşaldığında locali güncelle. Şimdi de okuma kısmını setUserda yapalım
 
   return (
     //-4 birden fazla obje olduğu için ne yaptık iki tane süslü içerisine aldık
