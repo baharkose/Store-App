@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
+import axios from "axios";
 
 const ProductDetail = () => {
   // -53 useParams ile title bilgisini kaptık. şimdi buna göre verileri çekemiyoruz id değil o nedenle şimdi burada devreye useNavigate hooku giriyor. Params bu senaryoda işe yaramadı. Elimizde herhangi bir single veri yok. Ne yapacağız?işte bu tarz durumlarda devreye useNavigate hooku giriyor useNavigate hookunun bir HEYBESİ var ve yanında yük taşıyabiliyor. -> ProductCarda ışınlandık. Orda bilgiler. useNAVIGATE heybeisnde yük taşır yönlendirme yaparken...ve BU YÜKÜ useLOCATION'a atar. kuryede kargoyu alır ve buraya getirir.
@@ -13,13 +14,37 @@ const ProductDetail = () => {
 
   //- 59 şimdi navigate ile ileri geri butonlarına yönlendirme yapalım. Şimdi navigate yaparken url'in sonuna parametre ekleyebiliriz. Bunun için urlnin sonuna ? koymamız gerekir. url'e kendimiz manuel olarak parametre veriyoruz.  Bunu productCardda yapacağız elimize id bilgisi de gelsin oraya gidelim
 
-  const { state } = useLocation();
+  // -62 search bize ? işaretinden sonraki kısımları sunar. pathname tamamını verir. fetch ise # işaretinden sonraki kısmı verir. aradaki boşluklar % ile gösterilir
+
+  const { state, search } = useLocation();
+  //-63 search ile id bilgisini elde ettik. ama bize eşittirden sonraki kısım lazım orayı ne yapabilirz split ile dilimleyebiliriz.
+
+  //- 64 split bir array olutşurdu iki elemanlı bir eleman oluşturdu bu şekilde ikinci elemanı [1] diyerek çağırabiliriz. ve useEffetct ile çağırma işlemini yapmak.
+
+  //- 65 hem state ile veri taşımak istemiyorsak hem de url de ürün adı yazmak istiyorsak bu yöntem
+
+  // ? ARAMA SONUÇLARININ GERİ TUŞUNDA KAYBOLMAMASI
+
+  //! 66 şimdi en önemli kısma gelelim, sayfada arama yaptıktan sonra geri gelince arama sonuçlarının kaybolmaması işlemi. Tekrar arama yapmayı engelleme. en son ne aratıldı kullanıcın bunu görmesi. sayfa yeniden render olduğu için geçmiş aramamız sıfırlanmış oluyor.
+
+
+
+  const getDetailData = async () => {
+    const {data} = await axios(`https://dummyjson.com/products/${search.split("=")[1]}`)
+    console.log(data)
+
+  }
+
+  useEffect(()=>{
+    getDetailData()
+  }, [])
 
   const navigate = useNavigate()
 
   const { thumbnail, title, description, category, price, images } = state;
   console.log(state);
   // -58 burda verilerin geldiğini görebiliriz.
+  
   return (
     <div className="container">
     <div className="mt-6 w-full ">

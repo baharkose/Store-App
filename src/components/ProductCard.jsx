@@ -11,11 +11,17 @@ const ProductCard = ({item}) => {
   //!56 ilk parametre gideceği adres ardından bir obje bekler bu objeyede state değeri veriyoruz. burada istediğimiz gibi bir veri gönderebiliyoruz . useNavigatei çağırdık. Ardından divin içeriisne navigateimizi yazdık. itemi olduğu gibi yanında taşı dedik. Heybeyi doldurduk. Şimdi kaşrılayacak olan detail sayfasına geçtik. 
 
   const navigate = useNavigate()
+//-63 search kısmnı ele geçirdik id bilgisi için
   return (
     // -52 benim routerda dinamik bir yapım vardı title. şimdi ne yapıcam onu burda ${} ile yönlendirdik. Bu beni nereye detail sayfasına yönlendiricek tıkladığımız ürünün bilgisi urlye geldi. Şimdi gelelim verileri aktarma işlemine bunları nasıl aktarıcaz productDetaile geldik...
 
 
-      //- 60 şimdi navigate ile ileri geri butonlarına yönlendirme yapalım. Şimdi navigate yaparken url'in sonuna parametre ekleyebiliriz. Bunun için urlnin sonuna ? koymamız gerekir. url'e kendimiz manuel olarak parametre veriyoruz.  navigate(`/dashboard/products/${title}?detail=${item.id}` artık elimize id bilgisi geçti.
+      //- 60 şimdi navigate ile ileri geri butonlarına yönlendirme yapalım. Şimdi navigate yaparken url'in sonuna parametre ekleyebiliriz. Bunun için urlnin sonuna ? koymamız gerekir. url'e kendimiz manuel olarak parametre veriyoruz.  navigate(`/dashboard/products/${title}?detail=${item.id}` artık elimize id bilgisi geçti.http://localhost:3000/dashboard/products/OPPOF19?detail=4
+
+      //!61 hem ürün adı görünsün hem id görünsün istiyorsak bu yöntemi kullanabiliriz. Peki biz detail=6 değerini nasıl yakalarız bunla ilgili bilgi elimizde var mı, ilgili urldeki bilgileri veren useLocationdur,
+
+      // - cardDeatilse geçtik
+      // -62 search bize ? işaretinden sonraki kısımları sunar. pathname tamamını verir. fetch ise # işaretinden sonraki kısmı verir. aradaki boşluklar % ile gösterilir
 
 
     <div className="cursor-pointer" onClick={() => navigate(`/dashboard/products/${title}?detail=${item.id}`, {state:item})}>
