@@ -3,6 +3,9 @@ import logo from "../assets/logo.png";
 import { closeNavbar, openNavbar, logoutIcon } from "../helper/icons";
 import { NavLink, useLocation } from "react-router-dom";
 import { AuthContext } from "../context/AuthProvider";
+
+//-14 bunlar programlama mantığına ters düştüğü için copy paste yapmak bu nedenle ne yaptık. Bir obje tanımlayıp menülerimizi içerisine yerleştirdik. 
+
 const navigation = [
   {
     title: "Home",
@@ -19,7 +22,13 @@ const navigation = [
 ];
 
 const Navbar = () => {
+
+  // - 18- sonrasında state ile navbarımızı responsive bir hale getirdik. herhangi bir loginden yararlanmadan responsive hale getirdik. 
+
+
   const [show, setShow] = useState(false);
+
+  //- 26 tükecek kişi siparişi verdi. autcontexteki logoutu al. Şimdi geldik logouta aşağıdaki.
   const { logout } = useContext(AuthContext);
   const location = useLocation();
   console.log(location);
@@ -39,9 +48,13 @@ const Navbar = () => {
               Clarusway
             </span>
           </a>
-          {/**iconu md ekranlardan sonra gizlensin diyoruz */}
+
+          {/** //-18 md ekranlardan 768px sonra hamburger ikonlarını gizle x iconu md ekranlardan sonra gizlensin diyoruz , burdaki hidden tailwind display:none a tekabül ediyor. */}
+
           <div className="md:hidden">
+
             <button
+           
               className="menu-btn text-gray-500 hover:text-gray-800"
               onClick={() => setShow(!show)}
             >
@@ -49,12 +62,26 @@ const Navbar = () => {
             </button>
           </div>
         </div>
-        <div
+        <div  
+        //- 19-md-ekranlardan sonra dvi ne oluyır flex row oluyor. eğer show true ise ne yap butonları flex row yap
+        //- 20 show ise flexi col yap. md ekranlardan sonra flexi row yap.
           className={`${
             show ? "flex flex-col pb-2" : "hidden"
           } flex-1 items-center md:flex md:flex-row`}
         >
           <ul className="space-y-6 md:flex md:space-x-6 md:space-y-0">
+
+            {/* //- 15 objemizi map ettik ve li elementlerinin içerisine ne yaptık. Titlelarımızı yerleştirdik.
+
+            //- navlink ile yönlendirme işlemlerimizi yaptık. navlink içerisine ne yaptık linklerimizi yerleştirdik.
+
+            //! 16 - a tagine göre farkı servera istek atmaya programlanmış değil sayfanın yeniden refresh olmasını engeller. Yani react mantığına ters olur o nedenle sayfa içi yönlendirmelerimizde ne yapıyoruz navlink ya da link to kullanıyoruz.
+
+            //- 17- navlink link farkı navlinkin css kabul etmesidir. Aynı zamanda isactive özelliğinin olması. urlde aktif olan pathi yakalayıp ona göre bir css özelliği verebilmemiz. Kullanım ve yönlendirme açısından başka herhangi bir farkı yoktur. 
+            
+            */}
+
+            
             {navigation.map((item) => (
               <li
                 key={item.title}
@@ -77,7 +104,16 @@ const Navbar = () => {
               onClick={logout}
               className="flex items-center justify-center gap-x-1 py-2 px-4 font-medium text-gray-700 hover:bg-main hover:text-white active:bg-gray-900 rounded-full md:inline-flex"
             >
+
+              {/* //- 21 şimdi logout kısmını biçimmlnedirelim, anasyafaya yönlediriyo ama kullanıcı geri geldiğinde manuel olarak  giriş yapabilir ya da geri gelebilir. o yüzden logouta basıldığında işimizi sağlama almak için statetimizi boşaltalım. 
+
+              // - 22 private routerda koşul olarak verdiğimiz useStateni boşaltalım. . Kullanıcı logout yaptığında tekrar geri gelemesin dönemesin. O yüzden ne yapıyoruz contexe gidip logout fonksiyonumuzu oluşturuyoruz. -> authprovidera --->
+              */}
               Logout {logoutIcon}
+
+              {/* //-27 navlink zaten bizi logine yönlediriyo o nednele tekrar yazmaya ihtyacımız kalmadı
+              //- 28 ne yapıyoruz navlinkin onClickine loguoutu veriyoruz. Artık şimdi ne yapıcak hem logout yapıcak logine yönlendiricek hemde onClick olduğunda içerik boşlamtılmış olucak.
+              */}
             </NavLink>
           </div>
         </div>

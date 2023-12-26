@@ -5,6 +5,13 @@ const Login = () => {
   const [email,setEmail] = useState("")
   const [pass,setPass] = useState("")
   const {login} = useContext(AuthContext)
+  //-7 useContexti al ordan autcontexti kullan. onun içerisinden login fonksiyonunu getir.
+
+  //-8 form submit olduğunda eğer girilen bilgiler şartları sağlıyorsa login fonksiyonuna bu bilgileri gönder.
+
+  //-9 oda gelen bilgileri aldı ve bizim userStatetimizi doldurdu. VE kullanıcıyı içeri aldı.
+
+  //-10 yönlendirme nerede autproviderda. 
   const handleSubmit= (e)=>{
     e.preventDefault()
     console.log({email,pass})

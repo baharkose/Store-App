@@ -1,13 +1,17 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
-const ProductCard = () => {
+const ProductCard = ({item}) => {
+  const {title, category, description, price, thumbnail} = item
+  const navigate = useNavigate()
   return (
-    <div className="cursor-pointer">
+    <div className="cursor-pointer" onClick={() => navigate(`/dashboard/products/${title}`, {state:item})}>
+      {/* heybesinde yük taşır. yükü uselocationa atar. */}
       <div className="w-full rounded-md bg-gray-200 hover:opacity-75 lg:h-80">
         <img
-          src={"images"}
-          alt={"title"}
-          title={"title"}
+          src={thumbnail}
+          alt={title}
+          title={title}
           className="h-[200px] w-full object-fit lg:h-full lg:w-full"
         />
       </div>

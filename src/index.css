@@ -4,6 +4,9 @@
 
 
 @layer components {
+
+    /* * css de component yazdığımızda aynı tailwind classı gibi kullanabiliyoruz. */
+    
     .loginDiv{
         background: linear-gradient(71deg, #FEAF00 19.35%, #F8D442 90.12%);
         @apply flex justify-center items-center min-h-screen;
@@ -18,6 +21,14 @@
     .login-input::placeholder{
         color: #CDCDCD;
         @apply font-montserrat text-[12px] font-[400];
+    }
+
+    .card-div{
+        @apply mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8;
+    }
+
+    .container{
+        
     }
 }
 
