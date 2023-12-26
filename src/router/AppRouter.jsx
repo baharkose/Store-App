@@ -22,7 +22,7 @@ const AppRouter = () => {
               //- 39 useLocation ilgili parametreler sorgular vs. bizim yakalamamızı sağlar.
               //- useNavigate hookunun bir diğer özelliği de nedir giderken yanında bir yükte taşıyabilir. Şu sayfaya git şu yükü de götür diyebiliyoruz.
 
-              //* 40 şimdi apilerle iletişim kuralım products sayfasına ışınlanalım
+              //! 40 şimdi apilerle iletişim kuralım products sayfasına ışınlanalım
           */}
           <Route path="products/:title" element={<ProductDetail />} />
           <Route path="about" element={<About />} />
