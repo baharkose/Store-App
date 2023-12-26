@@ -50,14 +50,18 @@ const Products = () => {
       </h2>
       {/* //-47 loading true ise ekranda loading componentini göster değilse ürünleri göster
       //- fetchten sonra eğer apide ürün yoksa boş array döner bunun içinde bulunmadığı için kullanıcyı bilgilendirmemiz lazım bu nedenle gelen productsın lengthine bakılır. loadingten yani fetch işleminden sonra o zaman deki ürün yok değilse maple
+
+      //- 48 şimdi iskelet yapısı ekleyelim - kartlara yüklenme efekti verme. şimdi loadinge --->
       
       */}
       {loading ? (
         <Loading />
       ) : products.length ? (
-        <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-10 xl:gap-x-8">
+        <div className="mt-6 grid grid-cols-1 sm:grid-cols-2  md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-10 xl:gap-x-8">
           {/* //- küçük ekranda olmasını istediğin şeyi direk yaz md den sonra 3 col olsun lg den sonra 4 olsun vs vs. */}
           {/* //- 48 - div içerisine alınca ne oluyor tekrar html alanına geri dönüyo o nedenle tekrar bir süslü içerisine yazmamız gerekli şimdi style aşaması gap-x-8 demek xlden sonra gap 2 rem olsun*/}
+         
+         {/* //-50 şimdi map yapıyoruz o nedenle hemen id mizi verdik, sonra itemi yani ürün bilgilerini carda yoladık şimdi carda karşılama işlemi*/}
           {products.map((item) => (
             <ProductCard key={item} item={item} />
           ))}
