@@ -4,10 +4,8 @@ import ProductCard from "../components/ProductCard";
 import Loading from "../components/Loading";
 import axios from "axios";
 const Products = () => {
-
   //-40 apiden veri çekiceksek ne lazım set lazım içinde dizi, loading useStatei
   //- 41 şimdi inputa göre veri çekelim bizim inputumuz nerde search inputtan gelen componentin içinde veriyi nasıl yakalıyacağız o statei de orda oluşturmalıyız ki aşağıdan veriyi alabilelim.
-
 
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -36,13 +34,13 @@ const Products = () => {
 
   //-44 fonksiyonumuzu çalıştırmak için bir useEffecte ihtiyacımız var. Didmount olduğunda getData() yı çalıştır
 
-  //-46 input çalışısınca appDatanın çalışması için. her harfe tıklandığında istek atılsın. 
+  //-46 input çalışısınca appDatanın çalışması için. her harfe tıklandığında istek atılsın.
   useEffect(() => {
     getData();
   }, [search]);
 
   // - 45 şimdi inputa gelicek olan değerleri yakalıyoruz. o nedenle search ve setSearcu inputun olduğu searchInputa yolladık. şimdi oraya ışınlanalım
- 
+
   return (
     // <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
     <div className="card-div">
@@ -58,10 +56,10 @@ const Products = () => {
         <Loading />
       ) : products.length ? (
         <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-10 xl:gap-x-8">
-
-          {/* //- 48 - div içerisine alınca ne oluyor tekrar html alanına geri dönüyo o nedenle tekrar bir süslü içerisine yazmamız gerekli  */}
+          {/* //- küçük ekranda olmasını istediğin şeyi direk yaz md den sonra 3 col olsun lg den sonra 4 olsun vs vs. */}
+          {/* //- 48 - div içerisine alınca ne oluyor tekrar html alanına geri dönüyo o nedenle tekrar bir süslü içerisine yazmamız gerekli şimdi style aşaması gap-x-8 demek xlden sonra gap 2 rem olsun*/}
           {products.map((item) => (
-            <ProductCard key={item} item={item}/>
+            <ProductCard key={item} item={item} />
           ))}
         </div>
       ) : (
