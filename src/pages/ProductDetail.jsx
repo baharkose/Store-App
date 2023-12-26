@@ -11,6 +11,8 @@ const ProductDetail = () => {
 
   //- 58 bu yöntemin bir dezavantajı bu linki alıp başkasına attığınızda herhangi bir şey görünmez. verilerin gelmesi için productsa ordan gitmek istediği yere tekrar.
 
+  //- 59 şimdi navigate ile ileri geri butonlarına yönlendirme yapalım. Şimdi navigate yaparken url'in sonuna parametre ekleyebiliriz. Bunun için urlnin sonuna ? koymamız gerekir. url'e kendimiz manuel olarak parametre veriyoruz.  Bunu productCardda yapacağız elimize id bilgisi de gelsin oraya gidelim
+
   const { state } = useLocation();
 
   const navigate = useNavigate()

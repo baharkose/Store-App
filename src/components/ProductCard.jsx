@@ -13,7 +13,12 @@ const ProductCard = ({item}) => {
   const navigate = useNavigate()
   return (
     // -52 benim routerda dinamik bir yapım vardı title. şimdi ne yapıcam onu burda ${} ile yönlendirdik. Bu beni nereye detail sayfasına yönlendiricek tıkladığımız ürünün bilgisi urlye geldi. Şimdi gelelim verileri aktarma işlemine bunları nasıl aktarıcaz productDetaile geldik...
-    <div className="cursor-pointer" onClick={() => navigate(`/dashboard/products/${title}`, {state:item})}>
+
+
+      //- 60 şimdi navigate ile ileri geri butonlarına yönlendirme yapalım. Şimdi navigate yaparken url'in sonuna parametre ekleyebiliriz. Bunun için urlnin sonuna ? koymamız gerekir. url'e kendimiz manuel olarak parametre veriyoruz.  navigate(`/dashboard/products/${title}?detail=${item.id}` artık elimize id bilgisi geçti.
+
+
+    <div className="cursor-pointer" onClick={() => navigate(`/dashboard/products/${title}?detail=${item.id}`, {state:item})}>
       {/* heybesinde yük taşır. yükü uselocationa atar. */}
       {/* //- hovera opacity verdik */}
       <div className="w-full rounded-md bg-gray-200 hover:opacity-75 lg:h-80">
