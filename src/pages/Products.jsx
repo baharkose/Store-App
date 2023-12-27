@@ -3,48 +3,53 @@ import SearchInput from "../components/SearchInput";
 import ProductCard from "../components/ProductCard";
 import Loading from "../components/Loading";
 import axios from "axios";
+import { useProducts } from "../context/ProductProvider";
 const Products = () => {
-  //-40 apiden veri çekiceksek ne lazım set lazım içinde dizi, loading useStatei
-  //- 41 şimdi inputa göre veri çekelim bizim inputumuz nerde search inputtan gelen componentin içinde veriyi nasıl yakalıyacağız o statei de orda oluşturmalıyız ki aşağıdan veriyi alabilelim.
+  // //-40 apiden veri çekiceksek ne lazım set lazım içinde dizi, loading useStatei
+  // //- 41 şimdi inputa göre veri çekelim bizim inputumuz nerde search inputtan gelen componentin içinde veriyi nasıl yakalıyacağız o statei de orda oluşturmalıyız ki aşağıdan veriyi alabilelim.
 
-  const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(false);
+  // const [products, setProducts] = useState([]);
+  // const [loading, setLoading] = useState(false);
 
-  //- 42 inputtan gelen veri için
-  const [search, setSearch] = useState("");
+  // //- 42 inputtan gelen veri için
+  // const [search, setSearch] = useState("");
 
-  console.log(search);
-  const getData = async () => {
-    // - laodingi başlat
-    setLoading(true);
-    try {
-      const { data } = await axios(
-        `https://dummyjson.com/products/search?q=${search}`
-        // - 43 soru işaretinden sonra parametreler gelir.
-      );
-      console.log(data);
-      setProducts(data.products);
-    } catch (error) {
-      console.log(error);
-    } finally {
-      // - 43 loadingi bitir
-      setLoading(false);
-    }
-  };
+  // console.log(search);
+  // const getData = async () => {
+  //   // - laodingi başlat
+  //   setLoading(true);
+  //   try {
+  //     const { data } = await axios(
+  //       `https://dummyjson.com/products/search?q=${search}`
+  //       // - 43 soru işaretinden sonra parametreler gelir.
+  //     );
+  //     console.log(data);
+  //     setProducts(data.products);
+  //   } catch (error) {
+  //     console.log(error);
+  //   } finally {
+  //     // - 43 loadingi bitir
+  //     setLoading(false);
+  //   }
+  // };
 
-  //-44 fonksiyonumuzu çalıştırmak için bir useEffecte ihtiyacımız var. Didmount olduğunda getData() yı çalıştır
+  // //-44 fonksiyonumuzu çalıştırmak için bir useEffecte ihtiyacımız var. Didmount olduğunda getData() yı çalıştır
 
-  //-46 input çalışısınca appDatanın çalışması için. her harfe tıklandığında istek atılsın.
-  useEffect(() => {
-    getData();
-  }, [search]);
+  // //-46 input çalışısınca appDatanın çalışması için. her harfe tıklandığında istek atılsın.
+  // useEffect(() => {
+  //   getData();
+  // }, [search]);
 
-  // - 45 şimdi inputa gelicek olan değerleri yakalıyoruz. o nedenle search ve setSearcu inputun olduğu searchInputa yolladık. şimdi oraya ışınlanalım
+  // // - 45 şimdi inputa gelicek olan değerleri yakalıyoruz. o nedenle search ve setSearcu inputun olduğu searchInputa yolladık. şimdi oraya ışınlanalım
+
+  //! 73 üst satırları contexte çağıracağımız için yoruma aldık. Artık statelere de ihtiyacımız kalmadı o nedenle yoruma aldık.  Şimdi search alanına gidelim ve orada consume işlemimizi yapalım
+
+const {products, loading} = useProducts()
 
   return (
     // <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
     <div className="card-div">
-      <SearchInput search={search} setSearch={setSearch} />
+      {/* <SearchInput search={search} setSearch={setSearch} />  //- ihtiyacımız kalmadı o nedenle yoruma aldık  */}
       <h2 className="text-2xl font-bold mt-8 tracking-tight text-gray-900">
         All Products
       </h2>

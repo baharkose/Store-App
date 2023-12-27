@@ -25,7 +25,8 @@ const ProductDetail = () => {
 
   // ? ARAMA SONUÇLARININ GERİ TUŞUNDA KAYBOLMAMASI
 
-  //! 66 şimdi en önemli kısma gelelim, sayfada arama yaptıktan sonra geri gelince arama sonuçlarının kaybolmaması işlemi. Tekrar arama yapmayı engelleme. en son ne aratıldı kullanıcın bunu görmesi. sayfa yeniden render olduğu için geçmiş aramamız sıfırlanmış oluyor.
+  //! 66 şimdi en önemli kısma gelelim, sayfada arama yaptıktan sonra geri gelince arama sonuçlarının kaybolmaması işlemi. Tekrar arama yapmayı engelleme. en son ne aratıldı kullanıcın bunu görmesi. sayfa yeniden render olduğu için geçmiş aramamız sıfırlanmış oluyor. Bu tarz yapılarda veriyi lokale taşımaya ihtiyacımız var. Şuan için bizim global alanımız neresi yeni bir context yapısı açmak.Neden çünkü hangi arama olduğunu sayfalar arasında bildirmemiz gerekiyor. context içerisinde ProductProvider Contextimizi oluşturalım. 
+
 
 
 

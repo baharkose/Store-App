@@ -24,6 +24,8 @@ const AppRouter = () => {
 
               //! 40 şimdi apilerle iletişim kuralım products sayfasına ışınlanalım
           */}
+
+          
           <Route path="products/:title" element={<ProductDetail />} />
           <Route path="about" element={<About />} />
         </Route>
