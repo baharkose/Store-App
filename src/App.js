@@ -9,6 +9,10 @@ function App() {
     //- Artık erişim hakkına sahibiz. Şimdi tüketebiliriz. Bunun için logine ışınlanıyoruz.
 
     //  -72 yapımızı sarmalladık. Şimdi işin consume ksımnı için products sayfasına gidelim
+
+
+    // ? SCROLLBAR PROBLEMİ ÇÖZÜMÜ 
+    // - scrolltotop componenneti oluştur. approutera çağır.
     <AuthProvider>
       <ProductProvider>
         <AppRouter />

@@ -7,10 +7,12 @@ import Products from "../pages/Products";
 import ProductDetail from "../pages/ProductDetail";
 import About from "../pages/About";
 import NotFound from "../pages/NotFound";
+import ScrollToTop from "../components/ScrollToTop";
 
 const AppRouter = () => {
   return (
     <>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/dashboard" element={<PrivateRouter />}>
@@ -25,7 +27,6 @@ const AppRouter = () => {
               //! 40 şimdi apilerle iletişim kuralım products sayfasına ışınlanalım
           */}
 
-          
           <Route path="products/:title" element={<ProductDetail />} />
           <Route path="about" element={<About />} />
         </Route>
