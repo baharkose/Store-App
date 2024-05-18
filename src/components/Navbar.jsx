@@ -52,7 +52,6 @@ const Navbar = () => {
             rel="noopener noreferrer"
             className="flex items-center"
           >
-            <img src={logo} width={50} height={50} alt="" />
             <span className="text-gray-700 hover:text-gray-900 font-medium">
               Bahar KOSE
             </span>
