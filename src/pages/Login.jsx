@@ -85,7 +85,7 @@ const Login = () => {
               {" "}
               Forgot your password?{" "}
             </span>
-            <span className="text-main text-[14px] font-montserrat font-[500] underline ml-1">
+            <span className="text-blue-500 text-[14px] font-montserrat font-[500] underline ml-1">
               Reset Password
             </span>
           </p>
