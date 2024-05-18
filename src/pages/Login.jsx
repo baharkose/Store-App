@@ -27,7 +27,7 @@ const Login = () => {
         <div className="flex justify-center items-center mt-2 gap-2">
           <span className="w-[6px] bg-blue-500 h-[39px]"></span>
           <h1 className="text-[22px] sm:text-[32px] font-montserrat font-[700] uppercase">
-            Clarus Store
+            Bahar's Store
           </h1>
         </div>
         <div className="my-2">
