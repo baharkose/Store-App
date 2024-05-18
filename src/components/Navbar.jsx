@@ -43,7 +43,7 @@ const Navbar = () => {
   console.log(location);
 
   return (
-    <nav className="bg-navbarColor md:text-sm">
+    <nav className="bg-blue-400 md:text-sm">
       <div className="gap-x-14 items-center max-w-screen-xl mx-auto px-4 md:flex md:px-8">
         <div className="flex items-center justify-between py-5 md:block">
           <a
@@ -53,7 +53,7 @@ const Navbar = () => {
             className="flex items-center"
           >
             <span className="text-gray-700 hover:text-gray-900 font-medium">
-              Bahar KOSE
+              Bahar's Store
             </span>
           </a>
 
