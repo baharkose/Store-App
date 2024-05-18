@@ -76,7 +76,7 @@ const Login = () => {
           </div>
           <button
             type="submit"
-            className="bg-blue h-[44px] font-montserrat text-label text-white uppercase hover:opacity-90 rounded-[4px]"
+            className="bg-blue-500 h-[44px] font-montserrat text-label text-white uppercase hover:opacity-90 rounded-[4px]"
           >
             Sign In
           </button>
