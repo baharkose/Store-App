@@ -1,19 +1,25 @@
 import React from 'react';
 
-const Home = () => {
+const About = () => {
     return (
         <div className="bg-blue-50 h-screen flex flex-col items-center justify-center p-4">
-            <h1 className="text-4xl font-bold text-blue-900 mb-4">Mağazamıza Hoş Geldiniz!</h1>
-            <p className="text-lg text-blue-800 mb-2">Biz, elektronik ve mobilya alanlarında hizmet vermekteyiz.</p>
-            <p className="text-lg text-blue-800 mb-6">En yeni teknolojik ürünleri ve kaliteli mobilyaları sizlerle buluşturuyoruz.</p>
-            <div className="text-blue-700">
-                <h2 className="text-2xl font-bold mb-2">İletişim Bilgilerimiz</h2>
-                <p><strong>Adres:</strong> 1234 Sokak, No:56, Bahçelievler, İstanbul</p>
-                <p><strong>Telefon:</strong> +90 212 123 45 67</p>
-                <p><strong>Email:</strong> info@magazamiz.com</p>
-            </div>
+            <h1 className="text-4xl font-bold text-blue-900 mb-6">Hakkımızda</h1>
+            <p className="text-lg text-blue-800 mb-4">Biz, XYZ Mağazası olarak, 20 yıldır sektörde lideriz.</p>
+            <p className="text-lg text-blue-800 mb-4">
+                Müşterilerimize en kaliteli ürünleri sunma konusunda kararlıyız ve bu yolda 
+                teknolojiyi ve tasarımı en iyi şekilde kullanmaya özen gösteriyoruz.
+            </p>
+            <p className="text-lg text-blue-800 mb-4">
+                Sürdürülebilirlik ve müşteri memnuniyetini önceliklerimiz arasında tutarak, 
+                sektördeki yenilikleri yakından takip ediyor ve sizlere en iyiyi sunmak için 
+                sürekli kendimizi geliştiriyoruz.
+            </p>
+            <p className="text-lg text-blue-800">
+                Amacımız, siz değerli müşterilerimizin yaşam kalitesini artırıcı ürünlerle 
+                hayatınızı kolaylaştırmaktır.
+            </p>
         </div>
     );
 };
 
-export default Home;
+export default About;
